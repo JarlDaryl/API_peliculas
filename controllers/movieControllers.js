@@ -35,4 +35,15 @@ const getRecentMovies = async (req, res) => {
   }
 };
 
-module.exports = { getMovies, getMovieById, getRecentMovies };
+const getPopularMovies = async (req, res) => {
+  try {
+    const data = await movieModel.find().sort({ rating: -1 }).limit(10);
+    res.status(200).json({ status: "succeeded", data, error: null });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ status: "failed", data: null, error: error.message });
+  }
+};
+
+module.exports = { getMovies, getMovieById, getRecentMovies, getPopularMovies };
