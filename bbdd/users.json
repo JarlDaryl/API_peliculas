@@ -1,0 +1,35 @@
+[
+  {
+    "_id": {
+      "$oid": "659c44a85e0a84f7769807a1"
+    },
+    "name": "Luis",
+    "email": "luis@arques.com",
+    "password": "$2b$10$We2VJQ5rA6JHaSAMehYOQeZWTCHRh/b4ldPgR7q7slrkG2JfqgkgK",
+    "role": "user",
+    "favourites": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "659c44e15e0a84f7769807a5"
+    },
+    "name": "Luis",
+    "email": "luis@calero.com",
+    "password": "$2b$10$7lzvK7o5W4/IsTNW9.qrhOJUr9hj9dqlmp4cvrplF9FT1JwhIG9ri",
+    "role": "user",
+    "favourites": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "659c453f5e0a84f7769807a7"
+    },
+    "name": "pepe",
+    "email": "pepe@colubi.com",
+    "password": "$2b$10$FLRmDKizKvKnpIrzLTp6vuB1xiF28f.H.iDqOaiv0ic0qTI/yfGdK",
+    "role": "user",
+    "favourites": [],
+    "__v": 0
+  }
+]
