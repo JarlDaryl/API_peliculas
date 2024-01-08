@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const PORT = 3000;
 
 const movieRouter = require("./router/movieRoutes");
+const userRouter = require("./router/userRoutes");
 
 //esto nos permite obtener la informacion de configuracion de ".env"
 require("dotenv").config();
@@ -37,6 +38,7 @@ db.on("disconnected", () => {
 });
 
 app.use("/movie", movieRouter);
+app.use("/user", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running http://localhost:${PORT}`);

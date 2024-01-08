@@ -20,19 +20,19 @@ const movieSchema = new Schema({
   },
   rating: {
     type: String,
-    required: [true, "El nombre es obligatorio"],
+    required: [true, "La valoración es obligatoria"],
   },
   posterURL: {
     type: String,
-    required: [true, "El nombre es obligatorio"],
+    required: [true, "La URL es obligatoria"],
   },
   trailerURL: {
     type: String,
-    required: [true, "El nombre es obligatorio"],
+    required: [true, "La URL es obligatoria"],
   },
   year: {
     type: String,
-    required: [true, "El nombre es obligatorio"],
+    required: [true, "El año es obligatorio"],
   },
   createdAt: {
     type: Date,
