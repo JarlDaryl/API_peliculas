@@ -112,10 +112,9 @@ const updateMovie = async (req, res) => {
       category,
       director,
       rating,
-      posterURL,
-      trailerURL,
+      posterUrl,
+      trailerUrl,
       year,
-      createdAt,
     } = req.body;
 
     const movie = await movieModel.findById(movieID);
@@ -144,20 +143,16 @@ const updateMovie = async (req, res) => {
       movie.rating = rating;
     }
 
-    if (posterURL) {
-      movie.posterURL = posterURL;
+    if (posterUrl) {
+      movie.posterUrl = posterUrl;
     }
 
-    if (trailerURL) {
-      movie.trailerURL = trailerURL;
+    if (trailerUrl) {
+      movie.trailerUrl = trailerUrl;
     }
 
     if (year) {
       movie.year = year;
-    }
-
-    if (createdAt) {
-      movie.createdAt = createdAt;
     }
 
     await movie.save();

@@ -4,6 +4,7 @@ const {
   favouriteMovies,
   addFavourite,
 } = require("../controllers/userControllers");
+const { verifyToken } = require("../middlewares/auth");
 
 const router = require("express").Router();
 

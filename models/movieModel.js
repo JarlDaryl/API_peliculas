@@ -22,11 +22,11 @@ const movieSchema = new Schema({
     type: String,
     required: [true, "La valoración es obligatoria"],
   },
-  posterURL: {
+  posterUrl: {
     type: String,
     required: [true, "La URL es obligatoria"],
   },
-  trailerURL: {
+  trailerUrl: {
     type: String,
     required: [true, "La URL es obligatoria"],
   },

@@ -11,14 +11,26 @@ const login = async (req, res) => {
         req.body.password,
         user.password
       );
-      //   if (validatePassword) {
-      //     const token = generateToken({});
-      //   }
-      res.status(201).json({
-        status: "Succeed",
-        message: "Usuario logueado correctamente",
-        data: user,
-      });
+      if (validatePassword) {
+        const token = generateToken(
+          {
+            id: user.id,
+            email: user.email,
+            role: user.role,
+          },
+          false
+        );
+        const token_refresh = generateToken(
+          { id: user.id, email: user.email, role: user.role },
+          true
+        );
+
+        res.status(201).json({
+          status: "Succeed",
+          message: "Usuario logueado correctamente",
+          data: { user: user, token: token, token_refresh: token_refresh },
+        });
+      }
     }
   } catch (error) {
     res
