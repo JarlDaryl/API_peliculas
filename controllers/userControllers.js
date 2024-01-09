@@ -59,4 +59,8 @@ const signUp = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login };
+const favouriteMovies = async (req, res) => {};
+
+const addFavourite = async (req, res) => {};
+
+module.exports = { signUp, login, favouriteMovies, addFavourite };
