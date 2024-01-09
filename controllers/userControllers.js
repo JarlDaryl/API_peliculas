@@ -77,29 +77,30 @@ const favouriteMovies = async (req, res) => {};
 
 const addFavourite = async (req, res) => {
   try {
-    const movieID = req.body.movieID;
-    const userID = req.params.userID;
+    const movieID = req.params.id;
+    const userId = req.user.userId; //req.user ya es toda la informacion del usuario, entonces con .id obtienes la informacion
 
-    const user = await userModel.findById(userID);
+    const user = await userModel.findById(userId);
+
     if (!user) {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    const movie = await movieModel.findById(movieID);
-    if (!movie) {
+    if (!movieID) {
       return res.status(404).json({ message: "Movie no encontrada" });
     }
 
     const favouriteMovie = user.favourites.includes(movieID);
-    if (favouriteMovie) {
+    if (!favouriteMovie) {
       return res.status(404).json({ message: "La movie ya esta en la lista" });
-    } else {
-      user.favourites.push(movieID);
-      user.save();
     }
+
+    user.favourites.push(movieID);
+    user.save();
+
     res.status(200).json({
       status: "Succeed",
-      message: "Movie añadida correctamente a favoritos",
+      message: "La pelicula se ha añadido correctamente",
     });
   } catch (error) {
     res.status(500).json({

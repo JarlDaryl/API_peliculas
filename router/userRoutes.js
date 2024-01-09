@@ -10,7 +10,8 @@ const router = require("express").Router();
 
 router.post("/", signUp);
 router.post("/login", login);
-router.get("/favourite/:id", favouriteMovies);
 router.post("/addFavourite/:id", addFavourite);
+
+router.get("/favourite/:id", favouriteMovies);
 
 module.exports = router;
