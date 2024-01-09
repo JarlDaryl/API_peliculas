@@ -1,5 +1,7 @@
 const userModel = require("../models/userModel");
+const movieModel = require("../models/movieModel");
 const bcrypt = require("bcrypt");
+const { generateToken } = require("../Utils/utils");
 
 const login = async (req, res) => {
   try {
@@ -61,6 +63,38 @@ const signUp = async (req, res) => {
 
 const favouriteMovies = async (req, res) => {};
 
-const addFavourite = async (req, res) => {};
+const addFavourite = async (req, res) => {
+  try {
+    const movieID = req.body.movieID;
+    const userID = req.params.userID;
+
+    const user = await userModel.findById(userID);
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+    const movie = await movieModel.findById(movieID);
+    if (!movie) {
+      return res.status(404).json({ message: "Movie no encontrada" });
+    }
+
+    const favouriteMovie = user.favourites.includes(movieID);
+    if (favouriteMovie) {
+      return res.status(404).json({ message: "La movie ya esta en la lista" });
+    } else {
+      user.favourites.push(movieID);
+      user.save();
+    }
+    res.status(200).json({
+      status: "Succeed",
+      message: "Movie añadida correctamente a favoritos",
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "Error al recopilar la informacion de la movie",
+      error: error.message,
+    });
+  }
+};
 
 module.exports = { signUp, login, favouriteMovies, addFavourite };

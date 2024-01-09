@@ -39,6 +39,8 @@ db.on("disconnected", () => {
 
 app.use("/movie", movieRouter);
 app.use("/user", userRouter);
+// app.use("/auth", loginRouter);
+//las comillas es el nombre que le ponemos pero no apuntan a la coleccion
 
 app.listen(PORT, () => {
   console.log(`Server running http://localhost:${PORT}`);
