@@ -31,6 +31,7 @@ const signUp = async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: await bcrypt.hash(req.body.password, 10),
+      role: req.body.role,
     });
 
     await newUser.save();
